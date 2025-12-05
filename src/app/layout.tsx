@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
@@ -18,6 +19,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${inter.className} min-h-screen flex flex-col items-center py-12`}>
                 {children}
+                <Analytics />
             </body>
         </html>
     );

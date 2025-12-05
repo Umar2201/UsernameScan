@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.6.1",
     "html2canvas": "^1.4.1",
     "next": "^16.0.7",
     "react": "^18.3.1",
