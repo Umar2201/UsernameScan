@@ -7,7 +7,8 @@ interface PlatformCardProps {
 }
 
 export function PlatformCard({ result }: PlatformCardProps) {
-    const platform = platforms.find((p) => p.id === result.platformId)!;
+    const platform = platforms.find((p) => p.id === result.platformId);
+    if (!platform) return null;
 
     const statusColors = {
         available: "bg-green-100 text-green-800 border-green-200",
@@ -27,7 +28,7 @@ export function PlatformCard({ result }: PlatformCardProps) {
     return (
         <div className={`p-3 sm:p-4 rounded-lg border ${statusColors[result.status]} flex flex-col gap-2 sm:gap-3 transition-all hover:shadow-md`}>
             <div className="flex items-center gap-3">
-                <span className="text-xl sm:text-2xl">{platform.icon}</span>
+                <span className={`text-xl sm:text-2xl ${platform.color}`}>{platform.icon}</span>
                 <span className="font-semibold text-sm sm:text-base truncate">{platform.name}</span>
             </div>
 

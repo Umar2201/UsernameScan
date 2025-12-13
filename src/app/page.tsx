@@ -4,14 +4,17 @@ import React, { useState } from "react";
 import { UsernameInput } from "../components/UsernameInput";
 import { ResultsGrid } from "../components/ResultsGrid";
 import { runChecks, PlatformResult } from "../lib/checkers";
+import { SafetyAnalysis } from "@/components/SafetyAnalysis";
 
 export default function Home() {
     const [loading, setLoading] = useState(false);
     const [results, setResults] = useState<PlatformResult[]>([]);
+    const [scannedUsername, setScannedUsername] = useState<string | null>(null);
 
     const handleScan = async (username: string) => {
         setLoading(true);
         setResults([]);
+        setScannedUsername(username);
 
         // Check sessionStorage cache
         const cacheKey = `uscan_${username}`;
@@ -55,6 +58,10 @@ export default function Home() {
             <UsernameInput onScan={handleScan} loading={loading} />
 
             <ResultsGrid results={results} loading={loading} />
+
+            {scannedUsername && results.length > 0 && !loading && (
+                <SafetyAnalysis username={scannedUsername} />
+            )}
         </main>
     );
 }
