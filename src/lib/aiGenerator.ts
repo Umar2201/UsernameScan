@@ -34,6 +34,9 @@ ABSOLUTE HARD RULES (NON-NEGOTIABLE)
 4. DO NOT generate gamer-tag junk or spammy patterns.
 5. DO NOT repeat the same construction pattern across names.
 6. Every username must feel intentionally designed.
+7. Do NOT repeat the same construction pattern across names.
+8. Do NOT repeat the same word i need very unique names.
+
 
 If any name violates these rules, it must be discarded internally.
 

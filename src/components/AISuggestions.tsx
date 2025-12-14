@@ -192,7 +192,7 @@ export function AISuggestions({ baseName }: AISuggestionsProps) {
                                 {styleLabels[style]}
                             </h4>
                             <div className="flex flex-wrap gap-2">
-                                {suggestions?.[style]?.length > 0 ? (
+                                {suggestions && suggestions[style]?.length > 0 ? (
                                     suggestions[style].map((username, idx) => (
                                         <button
                                             key={idx}
@@ -209,7 +209,7 @@ export function AISuggestions({ baseName }: AISuggestionsProps) {
                                                     <span
                                                         key={p}
                                                         className={`w-1.5 h-1.5 rounded-full ${availability[username]?.[p] === "available" ? "bg-green-500" :
-                                                                availability[username]?.[p] === "taken" ? "bg-red-400" : "bg-gray-200"
+                                                            availability[username]?.[p] === "taken" ? "bg-red-400" : "bg-gray-200"
                                                             }`}
                                                         title={`${p}: ${availability[username]?.[p] || "checking..."}`}
                                                     />
